@@ -12,7 +12,8 @@
 
 @property(nonatomic,strong)id <UIViewControllerTransitionCoordinator>transitionCoordinator;
 @property (nonatomic,strong)UIView *bgView;
-@property (nonatomic,strong)UIView *containerview;
+@property (nonatomic,strong)UIVisualEffectView *blurView;
+//@property (nonatomic,strong)UIView *containerview;
 
 @end
 
@@ -21,20 +22,26 @@
 //在呈现过渡即将开始的时候被调用的
 //我们在这个方法中把半透明黑色背景 View 加入到 containerView 中，并且做一个 alpha 从0到1的渐变过渡动画
 - (void)presentationTransitionWillBegin{
-    self.containerview = [self containerView];
+
     self.bgView = [[UIView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    self.bgView.backgroundColor = [UIColor blackColor];
-    self.bgView.alpha = 0;
-    [self.containerview addSubview:self.bgView];
-    [self.containerview addSubview:self.presentedView];
+//    self.bgView.backgroundColor = [UIColor blackColor];
+    self.bgView.alpha = 0.0;
+    
+    self.blurView = [[UIVisualEffectView alloc]initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
+    self.blurView.frame = self.containerView.bounds;
+    
+    [self.bgView insertSubview:self.blurView atIndex:0];
+    [self.containerView addSubview:self.bgView];
+//    [self.containerView addSubview:self.presentedView];
+    [self.containerView insertSubview:self.bgView atIndex:0];
+    
     
     // 使用 presentingViewController 的 transitionCoordinator,
     // 背景 bgView 的淡入效果与过渡效果一起执行
     self.transitionCoordinator = self.presentingViewController.transitionCoordinator;
     [self.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-        self.bgView.alpha = 0.5;
+        self.bgView.alpha = 1.0;
     } completion:nil];
-
 }
 
 //在呈现过渡结束时被调用的
