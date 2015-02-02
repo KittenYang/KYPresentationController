@@ -14,7 +14,10 @@
 
 @end
 
-@implementation SecondViewController
+@implementation SecondViewController{
+    UIPercentDrivenInteractiveTransition *percentDrivenInteractiveTransition;
+    CGFloat percent;
+}
 
 
 -(id)initWithCoder:(NSCoder *)aDecoder{
@@ -22,6 +25,7 @@
     if (self) {
         self.modalPresentationStyle = UIModalPresentationCustom;
         self.transitioningDelegate  = self;
+
     }
     return self;
 }
@@ -32,6 +36,7 @@
     if (self) {
         self.modalPresentationStyle = UIModalPresentationCustom;
         self.transitioningDelegate  = self;
+
     }
     return self;
 }
@@ -39,7 +44,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panGes:)];
+    [self.view addGestureRecognizer:pan];
+}
+
+-(void)panGes:(UIPanGestureRecognizer *)gesture{
+    CGFloat yOffset = [gesture translationInView:self.view].y;
+    percent =  yOffset / 1900;
+    
+    if (gesture.state == UIGestureRecognizerStateBegan) {
+        percentDrivenInteractiveTransition = [[UIPercentDrivenInteractiveTransition alloc]init];
+        //这句必须加上！！
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }else if (gesture.state == UIGestureRecognizerStateChanged){
+        [percentDrivenInteractiveTransition updateInteractiveTransition:percent];
+    }else if (gesture.state == UIGestureRecognizerStateCancelled || gesture.state == UIGestureRecognizerStateEnded){
+        if (percent > 0.06) {
+            [percentDrivenInteractiveTransition finishInteractiveTransition];
+        }else{
+            [percentDrivenInteractiveTransition cancelInteractiveTransition];
+        }
+        //这句也必须加上！！
+        percentDrivenInteractiveTransition = nil;
+    }
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,6 +97,14 @@
     CustomTransition * present = [[CustomTransition alloc]initWithBool:NO];
     return present;
 
+}
+
+- (id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator{
+    if (animator) {
+        return percentDrivenInteractiveTransition;
+    }else{
+        return nil;
+    }
 }
 
 
