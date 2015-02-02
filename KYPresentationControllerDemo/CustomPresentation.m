@@ -80,7 +80,7 @@
 
 - (UIView *)presentedView{
     UIView *pretedView = self.presentedViewController.view;
-    pretedView.layer.cornerRadius = 3.0f;
+    pretedView.layer.cornerRadius = 10.0f;
     
     return pretedView;
 }

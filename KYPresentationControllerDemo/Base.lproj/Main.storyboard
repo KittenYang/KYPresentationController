@@ -29,12 +29,17 @@
                                     <segue destination="3dp-eJ-Ydm" kind="presentation" id="qOb-Gf-lPa"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitten" translatesAutoresizingMaskIntoConstraints="NO" id="MXK-7u-l5D">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitten" translatesAutoresizingMaskIntoConstraints="NO" id="MXK-7u-l5D">
                                 <rect key="frame" x="150" y="150" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="FfI-p2-baj"/>
                                     <constraint firstAttribute="width" constant="300" id="wLf-Bh-9ku"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
