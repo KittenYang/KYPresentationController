@@ -23,21 +23,20 @@
 //我们在这个方法中把半透明黑色背景 View 加入到 containerView 中，并且做一个 alpha 从0到1的渐变过渡动画
 - (void)presentationTransitionWillBegin{
 
+    //创建视图
     self.bgView = [[UIView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-//    self.bgView.backgroundColor = [UIColor blackColor];
-    self.bgView.alpha = 0.0;
-    
     self.blurView = [[UIVisualEffectView alloc]initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
     self.blurView.frame = self.containerView.bounds;
-    
     [self.bgView insertSubview:self.blurView atIndex:0];
+    
     [self.containerView addSubview:self.bgView];
-//    [self.containerView addSubview:self.presentedView];
+    [self.containerView addSubview:self.presentedView];
     [self.containerView insertSubview:self.bgView atIndex:0];
     
     
     // 使用 presentingViewController 的 transitionCoordinator,
     // 背景 bgView 的淡入效果与过渡效果一起执行
+    self.bgView.alpha = 0.0;
     self.transitionCoordinator = self.presentingViewController.transitionCoordinator;
     [self.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
         self.bgView.alpha = 1.0;
@@ -85,6 +84,7 @@
     return frame;
 }
 
+//调整presented的圆角效果
 - (UIView *)presentedView{
     UIView *pretedView = self.presentedViewController.view;
     pretedView.layer.cornerRadius = 10.0f;
