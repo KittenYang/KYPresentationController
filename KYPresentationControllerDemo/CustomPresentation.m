@@ -30,10 +30,10 @@
     [self.bgView insertSubview:self.blurView atIndex:0];
     
     [self.containerView addSubview:self.bgView];
+    [self.containerView addSubview:self.bgView];
     [self.containerView addSubview:self.presentedView];
-    [self.containerView insertSubview:self.bgView atIndex:0];
-    
-    
+
+        
     // 使用 presentingViewController 的 transitionCoordinator,
     // 背景 bgView 的淡入效果与过渡效果一起执行
     self.bgView.alpha = 0.0;
