@@ -78,4 +78,12 @@
     return frame;
 }
 
+- (UIView *)presentedView{
+    UIView *pretedView = self.presentedViewController.view;
+    pretedView.layer.cornerRadius = 3.0f;
+    
+    return pretedView;
+}
+
+
 @end
