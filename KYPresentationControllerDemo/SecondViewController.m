@@ -52,7 +52,8 @@
 
 -(void)panGes:(UIPanGestureRecognizer *)gesture{
     CGFloat yOffset = [gesture translationInView:self.view].y;
-    percent =  yOffset / 1900;
+    percent =  yOffset / 1800;
+    percent = MAX(0, MIN(1, percent));
     
     if (gesture.state == UIGestureRecognizerStateBegan) {
         percentDrivenInteractiveTransition = [[UIPercentDrivenInteractiveTransition alloc]init];
@@ -62,33 +63,17 @@
         [percentDrivenInteractiveTransition updateInteractiveTransition:percent];
     }else if (gesture.state == UIGestureRecognizerStateCancelled || gesture.state == UIGestureRecognizerStateEnded){
         if (percent > 0.06) {
+
             [percentDrivenInteractiveTransition finishInteractiveTransition];
         }else{
+
             [percentDrivenInteractiveTransition cancelInteractiveTransition];
-            [self shakeit:self.view];
+
         }
         //这句也必须加上！！
         percentDrivenInteractiveTransition = nil;
     }
 }
-
--(void)shakeit:(UIView *)view{
-    
-    CGPoint viewPosition = view.layer.position;
-    CGPoint startPosition = CGPointMake(viewPosition.x + 10, viewPosition.y);
-    CGPoint endPosition   = CGPointMake(viewPosition.x - 10, viewPosition.y);
-    
-    CABasicAnimation *shakeAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
-    shakeAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-    shakeAnimation.fromValue = [NSValue valueWithCGPoint:startPosition];
-    shakeAnimation.toValue   = [NSValue valueWithCGPoint:endPosition];
-    shakeAnimation.autoreverses = YES;
-    shakeAnimation.duration = 0.06;
-    shakeAnimation.repeatCount = 2;
-    
-    [view.layer addAnimation:shakeAnimation forKey:@"shakeit"];
-}
-
 
 
 - (void)didReceiveMemoryWarning {
@@ -120,6 +105,7 @@
 }
 
 - (id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator{
+
     if (animator) {
         return percentDrivenInteractiveTransition;
     }else{

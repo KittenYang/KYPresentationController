@@ -31,47 +31,62 @@
 }
 
 - (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext{
-    return 0.7f;
+    return 0.5f;
 }
 
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext{
     if (self.isPresenting) {
+
+
         SecondViewController *toVC = (SecondViewController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
         UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
+
         self.containerView = [transitionContext containerView];
         
-        //设定被呈现的 view 一开始的位置，在屏幕下方
-        CGRect finalframe = [transitionContext finalFrameForViewController:toVC];
-        finalframe.origin.y = self.containerView.bounds.size.height;
-        toView.frame = finalframe;
+        //设定presented view 一开始的位置，在屏幕下方
+        CGRect initialframe = [transitionContext finalFrameForViewController:toVC];
+        CGRect startframe = CGRectOffset(initialframe, 0, initialframe.size.height);
+        toView.frame = startframe;
         
+
         [self.containerView addSubview:toView];
         
-        [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0f usingSpringWithDamping:0.6f initialSpringVelocity:0.0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0f usingSpringWithDamping:0.7f initialSpringVelocity:1.0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
 
-            toView.center = self.containerView.center;
+            //secondviewcontroller 滑上来
+            toView.frame = initialframe;
             
         } completion:^(BOOL finished) {
-            
-            [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+            if (finished) {
+    
+                [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+            }
         }];
     }else{
 
+
+        UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
         UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
+        
         self.containerView = [transitionContext containerView];
         
-        [self.containerView addSubview:fromView];
+
+        [self.containerView addSubview:toView];
+        
         
         // 添加一个动画，让要消失的 view 向下移动，离开屏幕
-        [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0f usingSpringWithDamping:0.6f initialSpringVelocity:0.0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0f usingSpringWithDamping:0.7f initialSpringVelocity:1.0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
             
+            //secondviewcontroller 滑下去
             CGRect finalframe = fromView.frame;
             finalframe.origin.y = self.containerView.bounds.size.height;
             fromView.frame = finalframe;
-            
-        } completion:^(BOOL finished) {
 
-            [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+        } completion:^(BOOL finished) {
+            if (finished) {
+
+                [transitionContext completeTransition:![transitionContext transitionWasCancelled] || ![transitionContext isInteractive]];
+            }
 
         }];
     }

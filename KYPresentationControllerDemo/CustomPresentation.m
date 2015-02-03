@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Kitten Yang. All rights reserved.
 //
 
+#define frameOffset 100
 #import "CustomPresentation.h"
 
 @interface CustomPresentation()
@@ -13,7 +14,8 @@
 @property(nonatomic,strong)id <UIViewControllerTransitionCoordinator>transitionCoordinator;
 @property (nonatomic,strong)UIView *bgView;
 @property (nonatomic,strong)UIVisualEffectView *blurView;
-//@property (nonatomic,strong)UIView *containerview;
+
+@property (nonatomic,strong)UIView *contview;
 
 @end
 
@@ -28,10 +30,12 @@
     self.blurView = [[UIVisualEffectView alloc]initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
     self.blurView.frame = self.containerView.bounds;
     [self.bgView insertSubview:self.blurView atIndex:0];
-    
-    [self.containerView addSubview:self.bgView];
-    [self.containerView addSubview:self.bgView];
-    [self.containerView addSubview:self.presentedView];
+
+    self.contview = self.containerView;
+    [self.contview addSubview:self.presentingViewController.view];
+    [self.contview addSubview:self.bgView];
+    [self.contview addSubview:self.presentedView];
+
 
         
     // 使用 presentingViewController 的 transitionCoordinator,
@@ -40,14 +44,21 @@
     self.transitionCoordinator = self.presentingViewController.transitionCoordinator;
     [self.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
         self.bgView.alpha = 1.0;
+        self.presentingViewController.view.transform = CGAffineTransformScale(self.presentingViewController.view.transform, 0.8, 0.8);
     } completion:nil];
+
+}
+
+- (BOOL)shouldRemovePresentersView{
+    return NO;
 }
 
 //在呈现过渡结束时被调用的
 //如果呈现没有完成，那就移除背景 View
 - (void)presentationTransitionDidEnd:(BOOL)completed{
     if (!completed) {
-        [self.bgView removeFromSuperview];
+//        [self.bgView removeFromSuperview];
+        
     }
 }
 
@@ -64,24 +75,27 @@
     self.transitionCoordinator = self.presentingViewController.transitionCoordinator;
     [self.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
         self.bgView.alpha = 0;
+        self.presentingViewController.view.transform = CGAffineTransformIdentity;
     } completion:nil];
 }
 
 //在退出的过渡结束时被调用的
 - (void)dismissalTransitionDidEnd:(BOOL)completed{
     if (completed) {
-        [self.bgView removeFromSuperview];
+//        [self.bgView removeFromSuperview];
     }
+
+    [[[UIApplication sharedApplication]keyWindow]addSubview:self.presentingViewController.view];
 }
 
 
 //-------------------还有最后一个方法-------------------
 //如果你不希望被呈现的 View 占据了整个屏幕，可以调整它的frame
 - (CGRect)frameOfPresentedViewInContainerView{
-    CGRect frame = self.containerView.bounds;
-    frame = CGRectInset(frame, 50, 150);
+    CGRect frame1 = self.containerView.bounds;
+    CGRect frame2 = CGRectMake(frame1.origin.x, frame1.origin.y + frameOffset, frame1.size.width,frame1.size.height - frameOffset);
     
-    return frame;
+    return frame2;
 }
 
 
