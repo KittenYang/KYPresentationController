@@ -95,6 +95,10 @@
                             <constraint firstItem="gFE-3Q-c9C" firstAttribute="top" secondItem="iCY-zg-O1I" secondAttribute="bottom" constant="8" id="sCJ-Pu-O5z"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="iCY-zg-O1I" id="CND-dc-LH4"/>
+                        <outlet property="secondView" destination="nME-HZ-fpQ" id="Mgv-BK-XbP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ilh-o4-sm5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

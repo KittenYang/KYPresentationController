@@ -84,6 +84,7 @@
     return frame;
 }
 
+
 //调整presented的圆角效果
 - (UIView *)presentedView{
     UIView *pretedView = self.presentedViewController.view;

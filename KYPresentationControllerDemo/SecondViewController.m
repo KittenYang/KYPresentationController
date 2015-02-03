@@ -11,6 +11,8 @@
 #import "CustomPresentation.h"
 
 @interface SecondViewController ()
+@property (strong, nonatomic) IBOutlet UIView *secondView;
+@property (strong, nonatomic) IBOutlet UILabel *label;
 
 @end
 
@@ -63,13 +65,31 @@
             [percentDrivenInteractiveTransition finishInteractiveTransition];
         }else{
             [percentDrivenInteractiveTransition cancelInteractiveTransition];
+            [self shakeit:self.view];
         }
         //这句也必须加上！！
         percentDrivenInteractiveTransition = nil;
     }
-    
-    
 }
+
+-(void)shakeit:(UIView *)view{
+    
+    CGPoint viewPosition = view.layer.position;
+    CGPoint startPosition = CGPointMake(viewPosition.x + 10, viewPosition.y);
+    CGPoint endPosition   = CGPointMake(viewPosition.x - 10, viewPosition.y);
+    
+    CABasicAnimation *shakeAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
+    shakeAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    shakeAnimation.fromValue = [NSValue valueWithCGPoint:startPosition];
+    shakeAnimation.toValue   = [NSValue valueWithCGPoint:endPosition];
+    shakeAnimation.autoreverses = YES;
+    shakeAnimation.duration = 0.06;
+    shakeAnimation.repeatCount = 2;
+    
+    [view.layer addAnimation:shakeAnimation forKey:@"shakeit"];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

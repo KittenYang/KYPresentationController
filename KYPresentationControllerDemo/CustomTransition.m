@@ -48,10 +48,11 @@
         [self.containerView addSubview:toView];
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0f usingSpringWithDamping:0.6f initialSpringVelocity:0.0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-            
+
             toView.center = self.containerView.center;
             
         } completion:^(BOOL finished) {
+            
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
         }];
     }else{
@@ -69,11 +70,14 @@
             fromView.frame = finalframe;
             
         } completion:^(BOOL finished) {
+
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+
         }];
     }
     
     
 }
+
 
 @end
