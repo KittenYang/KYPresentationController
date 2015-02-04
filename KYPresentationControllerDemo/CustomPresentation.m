@@ -57,7 +57,7 @@
 //如果呈现没有完成，那就移除背景 View
 - (void)presentationTransitionDidEnd:(BOOL)completed{
     if (!completed) {
-//        [self.bgView removeFromSuperview];
+        [self.bgView removeFromSuperview];
         
     }
 }
@@ -82,7 +82,7 @@
 //在退出的过渡结束时被调用的
 - (void)dismissalTransitionDidEnd:(BOOL)completed{
     if (completed) {
-//        [self.bgView removeFromSuperview];
+        [self.bgView removeFromSuperview];
     }
 
     [[[UIApplication sharedApplication]keyWindow]addSubview:self.presentingViewController.view];
