@@ -44,7 +44,7 @@
     self.transitionCoordinator = self.presentingViewController.transitionCoordinator;
     [self.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
         self.bgView.alpha = 0.7;
-        self.presentingViewController.view.transform = CGAffineTransformScale(self.presentingViewController.view.transform, 0.85, 0.85);
+        self.presentingViewController.view.transform = CGAffineTransformScale(self.presentingViewController.view.transform, 0.92, 0.92);
     } completion:nil];
 
 }

@@ -29,13 +29,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KYPresentationControllerDemo/CustomPresentation.m"
-            timestampString = "444681852.785492"
+            timestampString = "444756100.775967"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "-dismissalTransitionDidEnd:"
-            landmarkType = "5">
+            startingLineNumber = "120"
+            endingLineNumber = "120">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -45,13 +43,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KYPresentationControllerDemo/CustomPresentation.m"
-            timestampString = "444733402.472861"
+            timestampString = "444756100.775967"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "-dismissalTransitionWillBegin"
-            landmarkType = "5">
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "@implementation CustomPresentation"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -77,12 +75,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KYPresentationControllerDemo/SecondViewController.m"
-            timestampString = "444734227.251583"
+            timestampString = "444756305.209559"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "-animationControllerForDismissedController:"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "-panGes:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

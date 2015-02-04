@@ -51,7 +51,7 @@
 
 //        [self.containerView addSubview:toView];
         
-        [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0f usingSpringWithDamping:0.7f initialSpringVelocity:1.0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0f usingSpringWithDamping:0.7f initialSpringVelocity:0.0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveLinear animations:^{
 
             //secondviewcontroller 滑上来
             toView.frame = initialframe;
@@ -75,7 +75,7 @@
         
         
         // 添加一个动画，让要消失的 view 向下移动，离开屏幕
-        [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0f usingSpringWithDamping:0.7f initialSpringVelocity:1.0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0f usingSpringWithDamping:0.7f initialSpringVelocity:0.0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveLinear animations:^{
             
             //secondviewcontroller 滑下去
             CGRect finalframe = fromView.frame;
