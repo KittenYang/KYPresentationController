@@ -3,4 +3,4 @@ iOS8 中新添加的UIPresentationController的Demo
 
 
 
-![](demo.gif)
+![](demo2.gif)
