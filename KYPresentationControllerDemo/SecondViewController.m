@@ -53,7 +53,7 @@
 -(void)panGes:(UIPanGestureRecognizer *)gesture{
     CGFloat yOffset = [gesture translationInView:self.view].y;
     percent =  yOffset / 1800;
-    percent = MAX(0, MIN(1, percent));
+//    percent = MAX(0, MIN(1, percent));
     
     if (gesture.state == UIGestureRecognizerStateBegan) {
         percentDrivenInteractiveTransition = [[UIPercentDrivenInteractiveTransition alloc]init];
@@ -62,14 +62,15 @@
     }else if (gesture.state == UIGestureRecognizerStateChanged){
         [percentDrivenInteractiveTransition updateInteractiveTransition:percent];
     }else if (gesture.state == UIGestureRecognizerStateCancelled || gesture.state == UIGestureRecognizerStateEnded){
-        if (percent > 0.06) {
+        [percentDrivenInteractiveTransition finishInteractiveTransition];
+//        if (percent > 0.06) {
+//            
+//            
+//        }else{
 
-            [percentDrivenInteractiveTransition finishInteractiveTransition];
-        }else{
+//            [percentDrivenInteractiveTransition cancelInteractiveTransition];
 
-            [percentDrivenInteractiveTransition cancelInteractiveTransition];
-
-        }
+//        }
         //这句也必须加上！！
         percentDrivenInteractiveTransition = nil;
     }
@@ -99,9 +100,12 @@
 
 
 - (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed{
-    CustomTransition * present = [[CustomTransition alloc]initWithBool:NO];
-    return present;
-
+    if (dismissed) {
+        CustomTransition * present = [[CustomTransition alloc]initWithBool:NO];
+        return present;
+    }else{
+        return nil;
+    }
 }
 
 - (id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator{

@@ -43,8 +43,8 @@
     self.bgView.alpha = 0.0;
     self.transitionCoordinator = self.presentingViewController.transitionCoordinator;
     [self.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-        self.bgView.alpha = 1.0;
-        self.presentingViewController.view.transform = CGAffineTransformScale(self.presentingViewController.view.transform, 0.8, 0.8);
+        self.bgView.alpha = 0.7;
+        self.presentingViewController.view.transform = CGAffineTransformScale(self.presentingViewController.view.transform, 0.85, 0.85);
     } completion:nil];
 
 }
@@ -102,7 +102,7 @@
 //调整presented的圆角效果
 - (UIView *)presentedView{
     UIView *pretedView = self.presentedViewController.view;
-    pretedView.layer.cornerRadius = 10.0f;
+    pretedView.layer.cornerRadius = 8.0f;
     
     return pretedView;
 }

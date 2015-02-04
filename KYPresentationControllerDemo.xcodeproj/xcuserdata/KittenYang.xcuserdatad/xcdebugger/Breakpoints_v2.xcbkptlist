@@ -29,12 +29,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KYPresentationControllerDemo/CustomPresentation.m"
-            timestampString = "444681802.241732"
+            timestampString = "444681852.785492"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "-presentationTransitionDidEnd:"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "-dismissalTransitionDidEnd:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -45,12 +45,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KYPresentationControllerDemo/CustomPresentation.m"
-            timestampString = "444681852.785492"
+            timestampString = "444733402.472861"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "-dismissalTransitionDidEnd:"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "-dismissalTransitionWillBegin"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KYPresentationControllerDemo/CustomTransition.m"
+            timestampString = "444733617.51632"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "-animateTransition:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KYPresentationControllerDemo/SecondViewController.m"
+            timestampString = "444734227.251583"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "-animationControllerForDismissedController:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -49,6 +49,11 @@
                             <constraint firstAttribute="centerX" secondItem="MXK-7u-l5D" secondAttribute="centerX" id="Vuo-hg-vvD"/>
                             <constraint firstAttribute="centerX" secondItem="29z-h4-ZLE" secondAttribute="centerX" id="u7V-v9-gDr"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
