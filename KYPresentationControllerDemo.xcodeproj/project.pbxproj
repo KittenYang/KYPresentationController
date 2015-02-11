@@ -17,6 +17,8 @@
 		5F5778341A7D280900FC3A61 /* CustomPresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5778331A7D280900FC3A61 /* CustomPresentation.m */; };
 		5F5778371A7D35C700FC3A61 /* CustomTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5778361A7D35C700FC3A61 /* CustomTransition.m */; };
 		5F57783A1A7D394F00FC3A61 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5778391A7D394F00FC3A61 /* SecondViewController.m */; };
+		5F8735F01A8B4E8E000CADF4 /* MotionBlurFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8735ED1A8B4E8E000CADF4 /* MotionBlurFilter.m */; };
+		5F8735F11A8B4E8E000CADF4 /* UIView+MotionBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8735EF1A8B4E8E000CADF4 /* UIView+MotionBlur.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,10 @@
 		5F5778361A7D35C700FC3A61 /* CustomTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTransition.m; sourceTree = "<group>"; };
 		5F5778381A7D394F00FC3A61 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		5F5778391A7D394F00FC3A61 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		5F8735EC1A8B4E8E000CADF4 /* MotionBlurFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionBlurFilter.h; sourceTree = "<group>"; };
+		5F8735ED1A8B4E8E000CADF4 /* MotionBlurFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionBlurFilter.m; sourceTree = "<group>"; };
+		5F8735EE1A8B4E8E000CADF4 /* UIView+MotionBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MotionBlur.h"; sourceTree = "<group>"; };
+		5F8735EF1A8B4E8E000CADF4 /* UIView+MotionBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MotionBlur.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +96,7 @@
 		5F57780B1A7CF33700FC3A61 /* KYPresentationControllerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				5F8735F21A8B4E92000CADF4 /* MotionBlur */,
 				5F5778101A7CF33800FC3A61 /* AppDelegate.h */,
 				5F5778111A7CF33800FC3A61 /* AppDelegate.m */,
 				5F5778131A7CF33800FC3A61 /* ViewController.h */,
@@ -132,6 +139,17 @@
 				5F5778271A7CF33800FC3A61 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5F8735F21A8B4E92000CADF4 /* MotionBlur */ = {
+			isa = PBXGroup;
+			children = (
+				5F8735EC1A8B4E8E000CADF4 /* MotionBlurFilter.h */,
+				5F8735ED1A8B4E8E000CADF4 /* MotionBlurFilter.m */,
+				5F8735EE1A8B4E8E000CADF4 /* UIView+MotionBlur.h */,
+				5F8735EF1A8B4E8E000CADF4 /* UIView+MotionBlur.m */,
+			);
+			name = MotionBlur;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,7 +255,9 @@
 				5F57783A1A7D394F00FC3A61 /* SecondViewController.m in Sources */,
 				5F5778151A7CF33800FC3A61 /* ViewController.m in Sources */,
 				5F5778121A7CF33800FC3A61 /* AppDelegate.m in Sources */,
+				5F8735F01A8B4E8E000CADF4 /* MotionBlurFilter.m in Sources */,
 				5F5778371A7D35C700FC3A61 /* CustomTransition.m in Sources */,
+				5F8735F11A8B4E8E000CADF4 /* UIView+MotionBlur.m in Sources */,
 				5F5778341A7D280900FC3A61 /* CustomPresentation.m in Sources */,
 				5F57780F1A7CF33800FC3A61 /* main.m in Sources */,
 			);

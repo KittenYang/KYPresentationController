@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C94b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -91,13 +91,22 @@
                                     <action selector="dismissClick:" destination="Ilh-o4-sm5" eventType="touchUpInside" id="prR-Un-IEb"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitten" translatesAutoresizingMaskIntoConstraints="NO" id="Ugf-34-mEA">
+                                <rect key="frame" x="225" y="131" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="iJ1-dC-9RA"/>
+                                    <constraint firstAttribute="height" constant="150" id="jjj-g8-lr9"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="iCY-zg-O1I" secondAttribute="centerY" id="2br-fr-0to"/>
+                            <constraint firstItem="iCY-zg-O1I" firstAttribute="top" secondItem="Ugf-34-mEA" secondAttribute="bottom" constant="8" id="ldk-5I-aR2"/>
                             <constraint firstAttribute="centerX" secondItem="iCY-zg-O1I" secondAttribute="centerX" id="pAj-51-XbZ"/>
                             <constraint firstAttribute="centerX" secondItem="gFE-3Q-c9C" secondAttribute="centerX" id="rjs-dE-x0W"/>
                             <constraint firstItem="gFE-3Q-c9C" firstAttribute="top" secondItem="iCY-zg-O1I" secondAttribute="bottom" constant="8" id="sCJ-Pu-O5z"/>
+                            <constraint firstAttribute="centerX" secondItem="Ugf-34-mEA" secondAttribute="centerX" id="xoz-Cc-KPh"/>
                         </constraints>
                     </view>
                     <connections>

@@ -10,6 +10,7 @@
 #import "CustomTransition.h"
 #import "CustomPresentation.h"
 
+
 @interface SecondViewController ()
 @property (strong, nonatomic) IBOutlet UIView *secondView;
 @property (strong, nonatomic) IBOutlet UILabel *label;
@@ -20,6 +21,7 @@
     UIPercentDrivenInteractiveTransition *percentDrivenInteractiveTransition;
     CGFloat percent;
 }
+
 
 
 -(id)initWithCoder:(NSCoder *)aDecoder{
@@ -82,7 +84,9 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)dismissClick:(id)sender {
+
     [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 

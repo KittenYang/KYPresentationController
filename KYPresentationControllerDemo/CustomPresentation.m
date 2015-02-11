@@ -8,6 +8,7 @@
 
 #define frameOffset 100
 #import "CustomPresentation.h"
+#import "UIView+MotionBlur.h"
 
 @interface CustomPresentation()
 
@@ -42,6 +43,7 @@
     // 背景 bgView 的淡入效果与过渡效果一起执行
     self.bgView.alpha = 0.0;
     self.transitionCoordinator = self.presentingViewController.transitionCoordinator;
+    
     [self.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
         self.bgView.alpha = 0.7;
         self.presentingViewController.view.transform = CGAffineTransformScale(self.presentingViewController.view.transform, 0.92, 0.92);
